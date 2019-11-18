@@ -1,0 +1,424 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AF05CF922382AC8B00FC0203 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF05CF912382AC8B00FC0203 /* AppDelegate.swift */; };
+		AF05CF962382AC8B00FC0203 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF05CF952382AC8B00FC0203 /* ViewController.swift */; };
+		AF05CF992382AC8B00FC0203 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF05CF972382AC8B00FC0203 /* Main.storyboard */; };
+		AF05CF9B2382AC8C00FC0203 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF05CF9A2382AC8C00FC0203 /* Assets.xcassets */; };
+		AF05CF9E2382AC8C00FC0203 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF05CF9C2382AC8C00FC0203 /* LaunchScreen.storyboard */; };
+		AF05CFA72382AD3E00FC0203 /* Swifter in Frameworks */ = {isa = PBXBuildFile; productRef = AF05CFA62382AD3E00FC0203 /* Swifter */; };
+		AF05CFD22382B08E00FC0203 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF05CFD12382B08E00FC0203 /* ServiceLocator.swift */; };
+		AF05CFD92382B26100FC0203 /* ControlService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF05CFD82382B26100FC0203 /* ControlService.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AF05CF8E2382AC8B00FC0203 /* SketchVR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SketchVR.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF05CF912382AC8B00FC0203 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AF05CF952382AC8B00FC0203 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AF05CF982382AC8B00FC0203 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AF05CF9A2382AC8C00FC0203 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AF05CF9D2382AC8C00FC0203 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AF05CF9F2382AC8C00FC0203 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF05CFD12382B08E00FC0203 /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
+		AF05CFD82382B26100FC0203 /* ControlService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlService.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AF05CF8B2382AC8B00FC0203 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF05CFA72382AD3E00FC0203 /* Swifter in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AF05CF852382AC8B00FC0203 = {
+			isa = PBXGroup;
+			children = (
+				AF05CF902382AC8B00FC0203 /* sketchvr */,
+				AF05CF8F2382AC8B00FC0203 /* Products */,
+				AF05CFA82382AFE000FC0203 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		AF05CF8F2382AC8B00FC0203 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AF05CF8E2382AC8B00FC0203 /* SketchVR.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AF05CF902382AC8B00FC0203 /* sketchvr */ = {
+			isa = PBXGroup;
+			children = (
+				AF05CFD32382B0AF00FC0203 /* Application */,
+				AF05CFD52382B0E000FC0203 /* Modules */,
+				AF05CFD42382B0B800FC0203 /* Resources */,
+				AF05CFD02382B07C00FC0203 /* Services */,
+			);
+			path = sketchvr;
+			sourceTree = "<group>";
+		};
+		AF05CFA82382AFE000FC0203 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AF05CFD02382B07C00FC0203 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AF05CFD12382B08E00FC0203 /* ServiceLocator.swift */,
+				AF05CFD82382B26100FC0203 /* ControlService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		AF05CFD32382B0AF00FC0203 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				AF05CF912382AC8B00FC0203 /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		AF05CFD42382B0B800FC0203 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AF05CF9A2382AC8C00FC0203 /* Assets.xcassets */,
+				AF05CF9C2382AC8C00FC0203 /* LaunchScreen.storyboard */,
+				AF05CF9F2382AC8C00FC0203 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		AF05CFD52382B0E000FC0203 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				AF05CFD62382B0EA00FC0203 /* Main */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		AF05CFD62382B0EA00FC0203 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				AF05CF972382AC8B00FC0203 /* Main.storyboard */,
+				AF05CF952382AC8B00FC0203 /* ViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AF05CF8D2382AC8B00FC0203 /* sketchvr */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF05CFA22382AC8C00FC0203 /* Build configuration list for PBXNativeTarget "sketchvr" */;
+			buildPhases = (
+				AF05CF8A2382AC8B00FC0203 /* Sources */,
+				AF05CF8B2382AC8B00FC0203 /* Frameworks */,
+				AF05CF8C2382AC8B00FC0203 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = sketchvr;
+			packageProductDependencies = (
+				AF05CFA62382AD3E00FC0203 /* Swifter */,
+			);
+			productName = sketchvr;
+			productReference = AF05CF8E2382AC8B00FC0203 /* SketchVR.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AF05CF862382AC8B00FC0203 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1120;
+				LastUpgradeCheck = 1120;
+				ORGANIZATIONNAME = "Hubert Andrzejewski";
+				TargetAttributes = {
+					AF05CF8D2382AC8B00FC0203 = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+				};
+			};
+			buildConfigurationList = AF05CF892382AC8B00FC0203 /* Build configuration list for PBXProject "sketchvr" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AF05CF852382AC8B00FC0203;
+			packageReferences = (
+				AF05CFA52382AD3E00FC0203 /* XCRemoteSwiftPackageReference "swifter" */,
+			);
+			productRefGroup = AF05CF8F2382AC8B00FC0203 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AF05CF8D2382AC8B00FC0203 /* sketchvr */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AF05CF8C2382AC8B00FC0203 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF05CF9E2382AC8C00FC0203 /* LaunchScreen.storyboard in Resources */,
+				AF05CF9B2382AC8C00FC0203 /* Assets.xcassets in Resources */,
+				AF05CF992382AC8B00FC0203 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AF05CF8A2382AC8B00FC0203 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF05CFD22382B08E00FC0203 /* ServiceLocator.swift in Sources */,
+				AF05CFD92382B26100FC0203 /* ControlService.swift in Sources */,
+				AF05CF962382AC8B00FC0203 /* ViewController.swift in Sources */,
+				AF05CF922382AC8B00FC0203 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AF05CF972382AC8B00FC0203 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AF05CF982382AC8B00FC0203 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AF05CF9C2382AC8C00FC0203 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AF05CF9D2382AC8C00FC0203 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AF05CFA02382AC8C00FC0203 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AF05CFA12382AC8C00FC0203 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AF05CFA32382AC8C00FC0203 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4QYMTGDJ7R;
+				INFOPLIST_FILE = sketchvr/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.antrov.sketchvr;
+				PRODUCT_NAME = SketchVR;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		AF05CFA42382AC8C00FC0203 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4QYMTGDJ7R;
+				INFOPLIST_FILE = sketchvr/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.antrov.sketchvr;
+				PRODUCT_NAME = SketchVR;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AF05CF892382AC8B00FC0203 /* Build configuration list for PBXProject "sketchvr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF05CFA02382AC8C00FC0203 /* Debug */,
+				AF05CFA12382AC8C00FC0203 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AF05CFA22382AC8C00FC0203 /* Build configuration list for PBXNativeTarget "sketchvr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF05CFA32382AC8C00FC0203 /* Debug */,
+				AF05CFA42382AC8C00FC0203 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AF05CFA52382AD3E00FC0203 /* XCRemoteSwiftPackageReference "swifter" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/httpswift/swifter.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.7;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AF05CFA62382AD3E00FC0203 /* Swifter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AF05CFA52382AD3E00FC0203 /* XCRemoteSwiftPackageReference "swifter" */;
+			productName = Swifter;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = AF05CF862382AC8B00FC0203 /* Project object */;
+}
