@@ -17,9 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return self.window!.rootViewController as! UINavigationController
     }
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         ServiceLocator.register(singleton: ControlService())
+        ServiceLocator.register(singleton: LocalhostService())
+        ServiceLocator.register(singleton: try! RemoteFilesManager())
         
         return true
     }
