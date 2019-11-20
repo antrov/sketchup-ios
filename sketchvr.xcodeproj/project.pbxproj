@@ -18,6 +18,7 @@
 		AF83212723840B2400656965 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = AF83212623840B2400656965 /* ZIPFoundation */; };
 		AF83212923840D7C00656965 /* RemoteFilesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF83212823840D7C00656965 /* RemoteFilesManager.swift */; };
 		AF83212C238479CB00656965 /* Promises in Frameworks */ = {isa = PBXBuildFile; productRef = AF83212B238479CB00656965 /* Promises */; };
+		AF83212F238541AF00656965 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = AF83212E238541AF00656965 /* JGProgressHUD */; };
 		AFEC25BF2383089000A9FDD1 /* VRWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEC25BE2383089000A9FDD1 /* VRWebView.swift */; };
 		AFEC25C123830CDF00A9FDD1 /* LocalhostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEC25C023830CDF00A9FDD1 /* LocalhostService.swift */; };
 /* End PBXBuildFile section */
@@ -42,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF83212F238541AF00656965 /* JGProgressHUD in Frameworks */,
 				AF05CFA72382AD3E00FC0203 /* Swifter in Frameworks */,
 				AF83212723840B2400656965 /* ZIPFoundation in Frameworks */,
 				AF83212C238479CB00656965 /* Promises in Frameworks */,
@@ -161,6 +163,7 @@
 				AF05CFA62382AD3E00FC0203 /* Swifter */,
 				AF83212623840B2400656965 /* ZIPFoundation */,
 				AF83212B238479CB00656965 /* Promises */,
+				AF83212E238541AF00656965 /* JGProgressHUD */,
 			);
 			productName = sketchvr;
 			productReference = AF05CF8E2382AC8B00FC0203 /* SketchVR.app */;
@@ -194,6 +197,7 @@
 				AF05CFA52382AD3E00FC0203 /* XCRemoteSwiftPackageReference "swifter" */,
 				AF83212523840B2400656965 /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
 				AF83212A238479CB00656965 /* XCRemoteSwiftPackageReference "promises" */,
+				AF83212D238541AF00656965 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 			);
 			productRefGroup = AF05CF8F2382AC8B00FC0203 /* Products */;
 			projectDirPath = "";
@@ -454,6 +458,14 @@
 				minimumVersion = 1.2.8;
 			};
 		};
+		AF83212D238541AF00656965 /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -471,6 +483,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AF83212A238479CB00656965 /* XCRemoteSwiftPackageReference "promises" */;
 			productName = Promises;
+		};
+		AF83212E238541AF00656965 /* JGProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AF83212D238541AF00656965 /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			productName = JGProgressHUD;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

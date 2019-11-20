@@ -8,6 +8,7 @@
 
 import UIKit
 import Promises
+import JGProgressHUD
 
 class MainViewController: UIViewController {
     
@@ -27,15 +28,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        fileManager.downloadWebApp(forced: false).then { dirURL -> URL in
-            try self.locahost.serveLocalhost(from: dirURL)
-        }
-        .then { localhostURL -> Void in
-            self.webView.load(URLRequest(url: localhostURL))
-        }
-        .catch { error in
-            print(error)
-        }
+        setupWebApp()
     
        
 //        webView.load(URLRequest(url: URL(string: "https://autumn-bayberry.glitch.me/")!))
@@ -46,11 +39,30 @@ class MainViewController: UIViewController {
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?){
         guard motion == .motionShake else { return }
-        print("Shake Gesture Detected")
-        webView.reload()
+        setupWebApp(refresh: true)
     }
     
-    
+    private func setupWebApp(refresh: Bool = false) {
+        let hud = JGProgressHUD(style: .dark)
+        
+        hud.textLabel.text = "Downloading"
+        hud.show(in: self.view)
+        
+        fileManager.downloadWebApp(forced: refresh).then { dirURL -> URL in
+            try self.locahost.serveLocalhost(from: dirURL)
+        }
+        .then { localhostURL -> Void in
+            self.webView.load(URLRequest(url: localhostURL))
+        }
+        .then {
+            hud.dismiss()
+        }
+        .catch { error in
+            hud.indicatorView = JGProgressHUDErrorIndicatorView()
+            hud.textLabel.text = error.localizedDescription
+            hud.dismiss(afterDelay: 5, animated: true)
+        }
+    }
     
    
     
