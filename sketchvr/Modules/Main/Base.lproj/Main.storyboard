@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="J3h-tu-UgG">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="landscape" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
@@ -13,11 +13,11 @@
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="J3h-tu-UgG" customClass="MainViewController" customModule="SketchVR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7qB-lo-sjL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4YF-XP-f0R" customClass="VRWebView" customModule="SketchVR" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration" allowsInlineMediaPlayback="YES">
                                     <dataDetectorTypes key="dataDetectorTypes" none="YES"/>
@@ -32,11 +32,64 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oIP-42-eCT">
+                                <rect key="frame" x="597" y="16" width="54" height="150"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="zOS-KI-ZBP">
+                                    <rect key="frame" x="0.0" y="0.0" width="54" height="150"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="e5A-SA-UIT">
+                                            <rect key="frame" x="12" y="12" width="30" height="126"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cbg-gK-PXO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="34"/>
+                                                    <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
+                                                    <state key="normal" image="arrow.up" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="forwardActionBtn:" destination="J3h-tu-UgG" eventType="touchUpInside" id="CnI-NR-CmP"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dR2-GX-kfl">
+                                                    <rect key="frame" x="0.0" y="46" width="30" height="34"/>
+                                                    <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
+                                                    <state key="normal" image="arrow.down" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="backwardActionBtn:" destination="J3h-tu-UgG" eventType="touchUpInside" id="WMp-u4-Hvc"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcY-XX-JfR">
+                                                    <rect key="frame" x="0.0" y="92" width="30" height="34"/>
+                                                    <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
+                                                    <state key="normal" image="arrow.clockwise" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="loadActionBtn:" destination="J3h-tu-UgG" eventType="touchUpInside" id="8ZE-Sv-u4Q"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="e5A-SA-UIT" firstAttribute="top" secondItem="zOS-KI-ZBP" secondAttribute="top" constant="12" id="G0u-Xu-g9j"/>
+                                        <constraint firstItem="e5A-SA-UIT" firstAttribute="leading" secondItem="zOS-KI-ZBP" secondAttribute="leading" constant="12" id="IFN-Zj-BSu"/>
+                                        <constraint firstAttribute="bottom" secondItem="e5A-SA-UIT" secondAttribute="bottom" constant="12" id="Ipj-sK-F7x"/>
+                                        <constraint firstAttribute="trailing" secondItem="e5A-SA-UIT" secondAttribute="trailing" constant="12" id="yNl-qR-zKH"/>
+                                    </constraints>
+                                </view>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <blurEffect style="systemChromeMaterialDark"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </visualEffectView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="4YF-XP-f0R" firstAttribute="leading" secondItem="7qB-lo-sjL" secondAttribute="leading" id="KCx-g7-j5f"/>
                             <constraint firstAttribute="bottom" secondItem="4YF-XP-f0R" secondAttribute="bottom" id="Qgk-0Q-kAL"/>
+                            <constraint firstItem="cwd-5J-RsE" firstAttribute="trailing" secondItem="oIP-42-eCT" secondAttribute="trailing" constant="16" id="R7J-i4-b4W"/>
                             <constraint firstAttribute="trailing" secondItem="4YF-XP-f0R" secondAttribute="trailing" id="fHy-8Q-hp2"/>
+                            <constraint firstItem="oIP-42-eCT" firstAttribute="top" secondItem="cwd-5J-RsE" secondAttribute="top" constant="16" id="vld-tM-VIs"/>
                             <constraint firstItem="4YF-XP-f0R" firstAttribute="top" secondItem="7qB-lo-sjL" secondAttribute="top" id="xas-hs-4dJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cwd-5J-RsE"/>
@@ -51,4 +104,9 @@
             <point key="canvasLocation" x="138.40000000000001" y="138.98050974512745"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="arrow.clockwise" catalog="system" width="56" height="64"/>
+        <image name="arrow.down" catalog="system" width="60" height="64"/>
+        <image name="arrow.up" catalog="system" width="60" height="64"/>
+    </resources>
 </document>

@@ -13,6 +13,7 @@ import MediaPlayer
 final class ControlService {
     
 //    static let
+    // https://www.raywenderlich.com/835-audiokit-tutorial-getting-started
     
     private lazy var player = AVQueuePlayer()
     private var playerLooper: AVPlayerLooper?
@@ -51,6 +52,7 @@ final class ControlService {
         //
         //        print(newValue - oldValue)
         MPVolumeView.setVolume(0.5)
+        NotificationCenter.default.post(name: .onStepForws, object: nil, userInfo: nil)
     }
     
     func setupRemoteTransportControls() {

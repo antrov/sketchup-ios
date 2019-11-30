@@ -9,7 +9,7 @@
 import Foundation
 import Swifter
 
-final class LocalhostService: HttpServerIODelegate {
+final class LocalhostService {
     
     struct RuntimeError: Error {
         let message: String
@@ -23,22 +23,47 @@ final class LocalhostService: HttpServerIODelegate {
         }
     }
     
-    func socketConnectionReceived(_ socket: Socket) {
-        print(socket)
-    }
-    
     private lazy var server: HttpServer = {
         let server = HttpServer()
-        server.delegate = self
         return server
     }()
     
-    func serveLocalhost(from directory: URL, on port: UInt16 = 8080) throws -> URL {
+    func serveLocalhost(from directory: URL, on port: UInt16 = 8080, publicUrl: URL? = nil) throws -> URL {
         server.stop()
-        server["/"] = { (request: HttpRequest) -> HttpResponse in
-            request.params = ["": ""]
+        print(publicUrl)
+        let block = { (request: HttpRequest) -> HttpResponse in
+            var path = request.path
+            path.removeFirst()
+            print(path)
+            
+            if let publicUrl = publicUrl, path.split(separator: "/").first == "public" {
+                let publicPath = path.split(separator: "/").dropFirst().joined(separator: "/")
+                print("public: " + publicPath)
+                request.params = ["": publicPath]
+                let response = shareFilesFromDirectory(publicUrl.path)(request)
+                print("public response is \(response)")
+                return response
+            }
+            
+            request.params = ["": path]
             return shareFilesFromDirectory(directory.path)(request)
         }
+        
+        server["/"] = block
+        server["/:path/*"] = block
+        server["/*"] = block
+        
+        server.middleware.append { request in
+            print("Middleware: \(request.address ?? "unknown address") -> \(request.method) -> \(request.path)")
+            return nil
+        }
+        
+        server.notFoundHandler = { request -> HttpResponse in
+            print("notFoundHandler: \(request.address ?? "unknown address") -> \(request.method) -> \(request.path)")
+            return .notFound
+        }
+        
+        print(server.routes)
         
         try server.start(port, forceIPv4: true, priority: .background)
         

@@ -16,9 +16,9 @@ final class VRWebView: WKWebView, WKUIDelegate, WKNavigationDelegate {
         case stepBack
         case resetPosition
         case interact
-        case loadModel
+        case load
     }
-    
+    //https://medium.com/john-lewis-software-engineering/ios-wkwebview-communication-using-javascript-and-swift-ee077e0127eb
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
@@ -36,7 +36,10 @@ final class VRWebView: WKWebView, WKUIDelegate, WKNavigationDelegate {
     }
     
     func callAction(_ action: Action) {
-        
+        let cmd = "EntryPoint.execAction('\(action.rawValue)', '/public/Zimne Wody')"
+        evaluateJavaScript(cmd) { (_, error) in
+            print("callAction '\(cmd)' with error \(error)")
+        }
     }
     
     // MARK: <WKUIDelegate>       
@@ -44,7 +47,7 @@ final class VRWebView: WKWebView, WKUIDelegate, WKNavigationDelegate {
     // MARK: <WKNavigationDelegate>
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
-        print(navigationResponse)
+//        print(navigationResponse)
         decisionHandler(.allow)
     }
     

@@ -24,12 +24,26 @@ class MainViewController: UIViewController {
     override func becomeFirstResponder() -> Bool {
         return true
     }
-    
+    var o: Any!
     override func viewDidLoad() {
         super.viewDidLoad()
        
         setupWebApp()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.webView.callAction(.load)
+        }
     
+        let o = NotificationCenter.default.addObserver(forName: .onSelectedSkin, object: nil, queue: .main) { [weak self] (_) in
+            self?.webView.callAction(.load)
+        }
+        let f = NotificationCenter.default.addObserver(forName: .onStepForws, object: nil, queue: .main) { [weak self] (_) in
+            self?.webView.callAction(.stepForward)
+        }
+        
+        self.o = [o, f]
+        
+        control.start()
        
 //        webView.load(URLRequest(url: URL(string: "https://autumn-bayberry.glitch.me/")!))
 //        webView.load(URLRequest(url: URL(string: "http://127.0.0.1:8080/")!))
@@ -47,9 +61,9 @@ class MainViewController: UIViewController {
         
         hud.textLabel.text = "Downloading"
         hud.show(in: self.view)
-        
+
         fileManager.downloadWebApp(forced: refresh).then { dirURL -> URL in
-            try self.locahost.serveLocalhost(from: dirURL)
+            try self.locahost.serveLocalhost(from: dirURL, publicUrl: self.fileManager.cloudUrl)
         }
         .then { localhostURL -> Void in
             self.webView.load(URLRequest(url: localhostURL))
@@ -62,6 +76,18 @@ class MainViewController: UIViewController {
             hud.textLabel.text = error.localizedDescription
             hud.dismiss(afterDelay: 5, animated: true)
         }
+    }
+    
+    @IBAction private func forwardActionBtn(_ sender: Any) {
+        webView.callAction(.stepForward)
+    }
+    
+    @IBAction private func backwardActionBtn(_ sender: Any) {
+        webView.callAction(.stepBack)
+    }
+    
+    @IBAction private func loadActionBtn(_ sender: Any) {
+        webView.callAction(.load)
     }
     
    

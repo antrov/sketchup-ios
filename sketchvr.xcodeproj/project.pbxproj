@@ -33,6 +33,7 @@
 		AF05CF9F2382AC8C00FC0203 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF05CFD12382B08E00FC0203 /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		AF05CFD82382B26100FC0203 /* ControlService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlService.swift; sourceTree = "<group>"; };
+		AF13BEE92388306400449B2E /* SketchVR.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SketchVR.entitlements; sourceTree = "<group>"; };
 		AF83212823840D7C00656965 /* RemoteFilesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFilesManager.swift; sourceTree = "<group>"; };
 		AFEC25BE2383089000A9FDD1 /* VRWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRWebView.swift; sourceTree = "<group>"; };
 		AFEC25C023830CDF00A9FDD1 /* LocalhostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalhostService.swift; sourceTree = "<group>"; };
@@ -73,6 +74,7 @@
 		AF05CF902382AC8B00FC0203 /* sketchvr */ = {
 			isa = PBXGroup;
 			children = (
+				AF13BEE92388306400449B2E /* SketchVR.entitlements */,
 				AF05CFD32382B0AF00FC0203 /* Application */,
 				AF05CFD52382B0E000FC0203 /* Modules */,
 				AF05CFD42382B0B800FC0203 /* Resources */,
@@ -376,15 +378,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = sketchvr/SketchVR.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4QYMTGDJ7R;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = Q436T99AEU;
 				INFOPLIST_FILE = sketchvr/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.antrov.sketchvr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.antrov.sketchvr.dev;
 				PRODUCT_NAME = SketchVR;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -395,15 +399,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = sketchvr/SketchVR.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4QYMTGDJ7R;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = Q436T99AEU;
 				INFOPLIST_FILE = sketchvr/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.antrov.sketchvr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.antrov.sketchvr.dev;
 				PRODUCT_NAME = SketchVR;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
