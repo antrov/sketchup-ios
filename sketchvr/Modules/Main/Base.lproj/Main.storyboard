@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="J3h-tu-UgG">
-    <device id="retina4_7" orientation="landscape" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
@@ -13,18 +13,9 @@
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="J3h-tu-UgG" customClass="MainViewController" customModule="SketchVR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7qB-lo-sjL">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4YF-XP-f0R" customClass="VRWebView" customModule="SketchVR" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration" allowsInlineMediaPlayback="YES">
-                                    <dataDetectorTypes key="dataDetectorTypes" none="YES"/>
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences" javaScriptCanOpenWindowsAutomatically="YES"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MfH-rG-lzE">
                                 <rect key="frame" x="43" y="323" width="290" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -33,7 +24,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oIP-42-eCT">
-                                <rect key="frame" x="597" y="16" width="54" height="150"/>
+                                <rect key="frame" x="305" y="16" width="54" height="150"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="zOS-KI-ZBP">
                                     <rect key="frame" x="0.0" y="0.0" width="54" height="150"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -85,18 +76,13 @@
                             </visualEffectView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="4YF-XP-f0R" firstAttribute="leading" secondItem="7qB-lo-sjL" secondAttribute="leading" id="KCx-g7-j5f"/>
-                            <constraint firstAttribute="bottom" secondItem="4YF-XP-f0R" secondAttribute="bottom" id="Qgk-0Q-kAL"/>
                             <constraint firstItem="cwd-5J-RsE" firstAttribute="trailing" secondItem="oIP-42-eCT" secondAttribute="trailing" constant="16" id="R7J-i4-b4W"/>
-                            <constraint firstAttribute="trailing" secondItem="4YF-XP-f0R" secondAttribute="trailing" id="fHy-8Q-hp2"/>
                             <constraint firstItem="oIP-42-eCT" firstAttribute="top" secondItem="cwd-5J-RsE" secondAttribute="top" constant="16" id="vld-tM-VIs"/>
-                            <constraint firstItem="4YF-XP-f0R" firstAttribute="top" secondItem="7qB-lo-sjL" secondAttribute="top" id="xas-hs-4dJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cwd-5J-RsE"/>
                     </view>
                     <connections>
                         <outlet property="label" destination="MfH-rG-lzE" id="Suy-CF-PRy"/>
-                        <outlet property="webView" destination="4YF-XP-f0R" id="3Aq-s6-gXI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EUr-hv-q5I" sceneMemberID="firstResponder"/>

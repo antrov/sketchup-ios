@@ -12,15 +12,13 @@
 		AF05CF992382AC8B00FC0203 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF05CF972382AC8B00FC0203 /* Main.storyboard */; };
 		AF05CF9B2382AC8C00FC0203 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF05CF9A2382AC8C00FC0203 /* Assets.xcassets */; };
 		AF05CF9E2382AC8C00FC0203 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF05CF9C2382AC8C00FC0203 /* LaunchScreen.storyboard */; };
-		AF05CFA72382AD3E00FC0203 /* Swifter in Frameworks */ = {isa = PBXBuildFile; productRef = AF05CFA62382AD3E00FC0203 /* Swifter */; };
 		AF05CFD22382B08E00FC0203 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF05CFD12382B08E00FC0203 /* ServiceLocator.swift */; };
 		AF05CFD92382B26100FC0203 /* ControlService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF05CFD82382B26100FC0203 /* ControlService.swift */; };
-		AF83212723840B2400656965 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = AF83212623840B2400656965 /* ZIPFoundation */; };
-		AF83212923840D7C00656965 /* RemoteFilesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF83212823840D7C00656965 /* RemoteFilesManager.swift */; };
 		AF83212C238479CB00656965 /* Promises in Frameworks */ = {isa = PBXBuildFile; productRef = AF83212B238479CB00656965 /* Promises */; };
 		AF83212F238541AF00656965 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = AF83212E238541AF00656965 /* JGProgressHUD */; };
-		AFEC25BF2383089000A9FDD1 /* VRWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEC25BE2383089000A9FDD1 /* VRWebView.swift */; };
-		AFEC25C123830CDF00A9FDD1 /* LocalhostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEC25C023830CDF00A9FDD1 /* LocalhostService.swift */; };
+		AF855DC32393FE9F00956A34 /* MetalScope in Frameworks */ = {isa = PBXBuildFile; productRef = AF855DC22393FE9F00956A34 /* MetalScope */; };
+		AF855DC62394097100956A34 /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = AF855DC52394097100956A34 /* Starscream */; };
+		AF855DC82394097C00956A34 /* ApiDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855DC72394097C00956A34 /* ApiDriver.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,9 +32,7 @@
 		AF05CFD12382B08E00FC0203 /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		AF05CFD82382B26100FC0203 /* ControlService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlService.swift; sourceTree = "<group>"; };
 		AF13BEE92388306400449B2E /* SketchVR.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SketchVR.entitlements; sourceTree = "<group>"; };
-		AF83212823840D7C00656965 /* RemoteFilesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFilesManager.swift; sourceTree = "<group>"; };
-		AFEC25BE2383089000A9FDD1 /* VRWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRWebView.swift; sourceTree = "<group>"; };
-		AFEC25C023830CDF00A9FDD1 /* LocalhostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalhostService.swift; sourceTree = "<group>"; };
+		AF855DC72394097C00956A34 /* ApiDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiDriver.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,9 +41,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF83212F238541AF00656965 /* JGProgressHUD in Frameworks */,
-				AF05CFA72382AD3E00FC0203 /* Swifter in Frameworks */,
-				AF83212723840B2400656965 /* ZIPFoundation in Frameworks */,
+				AF855DC32393FE9F00956A34 /* MetalScope in Frameworks */,
 				AF83212C238479CB00656965 /* Promises in Frameworks */,
+				AF855DC62394097100956A34 /* Starscream in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,9 +90,8 @@
 			isa = PBXGroup;
 			children = (
 				AF05CFD12382B08E00FC0203 /* ServiceLocator.swift */,
+				AF855DC72394097C00956A34 /* ApiDriver.swift */,
 				AF05CFD82382B26100FC0203 /* ControlService.swift */,
-				AFEC25C023830CDF00A9FDD1 /* LocalhostService.swift */,
-				AF83212823840D7C00656965 /* RemoteFilesManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -140,7 +135,6 @@
 		AFEC25BD2383087000A9FDD1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				AFEC25BE2383089000A9FDD1 /* VRWebView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -162,10 +156,10 @@
 			);
 			name = sketchvr;
 			packageProductDependencies = (
-				AF05CFA62382AD3E00FC0203 /* Swifter */,
-				AF83212623840B2400656965 /* ZIPFoundation */,
 				AF83212B238479CB00656965 /* Promises */,
 				AF83212E238541AF00656965 /* JGProgressHUD */,
+				AF855DC22393FE9F00956A34 /* MetalScope */,
+				AF855DC52394097100956A34 /* Starscream */,
 			);
 			productName = sketchvr;
 			productReference = AF05CF8E2382AC8B00FC0203 /* SketchVR.app */;
@@ -196,10 +190,10 @@
 			);
 			mainGroup = AF05CF852382AC8B00FC0203;
 			packageReferences = (
-				AF05CFA52382AD3E00FC0203 /* XCRemoteSwiftPackageReference "swifter" */,
-				AF83212523840B2400656965 /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
 				AF83212A238479CB00656965 /* XCRemoteSwiftPackageReference "promises" */,
 				AF83212D238541AF00656965 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
+				AF855DC12393FE9F00956A34 /* XCRemoteSwiftPackageReference "MetalScope" */,
+				AF855DC42394097100956A34 /* XCRemoteSwiftPackageReference "Starscream" */,
 			);
 			productRefGroup = AF05CF8F2382AC8B00FC0203 /* Products */;
 			projectDirPath = "";
@@ -229,12 +223,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF05CFD22382B08E00FC0203 /* ServiceLocator.swift in Sources */,
+				AF855DC82394097C00956A34 /* ApiDriver.swift in Sources */,
 				AF05CFD92382B26100FC0203 /* ControlService.swift in Sources */,
 				AF05CF962382AC8B00FC0203 /* MainViewController.swift in Sources */,
-				AF83212923840D7C00656965 /* RemoteFilesManager.swift in Sources */,
-				AFEC25C123830CDF00A9FDD1 /* LocalhostService.swift in Sources */,
 				AF05CF922382AC8B00FC0203 /* AppDelegate.swift in Sources */,
-				AFEC25BF2383089000A9FDD1 /* VRWebView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,7 +375,7 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = Q436T99AEU;
 				INFOPLIST_FILE = sketchvr/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -404,7 +396,7 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = Q436T99AEU;
 				INFOPLIST_FILE = sketchvr/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -440,22 +432,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		AF05CFA52382AD3E00FC0203 /* XCRemoteSwiftPackageReference "swifter" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/httpswift/swifter.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.4.7;
-			};
-		};
-		AF83212523840B2400656965 /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/weichsel/ZIPFoundation.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.9.9;
-			};
-		};
 		AF83212A238479CB00656965 /* XCRemoteSwiftPackageReference "promises" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/google/promises.git";
@@ -472,19 +448,25 @@
 				minimumVersion = 2.1.0;
 			};
 		};
+		AF855DC12393FE9F00956A34 /* XCRemoteSwiftPackageReference "MetalScope" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/antrov/MetalScope.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.16.1;
+			};
+		};
+		AF855DC42394097100956A34 /* XCRemoteSwiftPackageReference "Starscream" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/daltoniam/Starscream.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		AF05CFA62382AD3E00FC0203 /* Swifter */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AF05CFA52382AD3E00FC0203 /* XCRemoteSwiftPackageReference "swifter" */;
-			productName = Swifter;
-		};
-		AF83212623840B2400656965 /* ZIPFoundation */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AF83212523840B2400656965 /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
-			productName = ZIPFoundation;
-		};
 		AF83212B238479CB00656965 /* Promises */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = AF83212A238479CB00656965 /* XCRemoteSwiftPackageReference "promises" */;
@@ -494,6 +476,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AF83212D238541AF00656965 /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
 			productName = JGProgressHUD;
+		};
+		AF855DC22393FE9F00956A34 /* MetalScope */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AF855DC12393FE9F00956A34 /* XCRemoteSwiftPackageReference "MetalScope" */;
+			productName = MetalScope;
+		};
+		AF855DC52394097100956A34 /* Starscream */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AF855DC42394097100956A34 /* XCRemoteSwiftPackageReference "Starscream" */;
+			productName = Starscream;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

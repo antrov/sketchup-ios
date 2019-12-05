@@ -19,8 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         ServiceLocator.register(singleton: ControlService())
-        ServiceLocator.register(singleton: LocalhostService())
-        ServiceLocator.register(singleton: try! RemoteFilesManager())
+        ServiceLocator.register(singleton: ApiDriver())
         
         return true
     }

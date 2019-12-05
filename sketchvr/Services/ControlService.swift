@@ -52,7 +52,7 @@ final class ControlService {
         //
         //        print(newValue - oldValue)
         MPVolumeView.setVolume(0.5)
-        NotificationCenter.default.post(name: .onStepForws, object: nil, userInfo: nil)
+//        NotificationCenter.default.post(name: .onStepForws, object: nil, userInfo: nil)
     }
     
     func setupRemoteTransportControls() {
