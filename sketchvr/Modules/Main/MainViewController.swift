@@ -34,7 +34,11 @@ class MainViewController: UIViewController {
     }
     
     private func loadPanoramaView() {
+        #if arch(arm) || arch(arm64)
         let panoramaView = PanoramaView(frame: view.bounds, device: device)
+        #else
+        let panoramaView = PanoramaView(frame: view.bounds) // simulator
+        #endif
         panoramaView.setNeedsResetRotation()
         panoramaView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(panoramaView)
@@ -80,12 +84,17 @@ class MainViewController: UIViewController {
     
     
     var o: Any!
+    var f: Any!
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        f = apiDriver.observe(\.state, options: [.new, .initial]) { (api, change) in
+            print("api driver state changed \(api.state.rawValue)")
+        }
           loadPanoramaView()
 //        apiDriver.connect(to: URL(string: "ws://10.19.140.153:8082/")!)
-        apiDriver.connect(to: URL(string: "ws://192.168.1.176:8082/")!)
+        apiDriver.connect(to: URL(string: "ws://192.168.1.231:8082/")!)
             .then(on: .main) {
                 print("connected")
         }

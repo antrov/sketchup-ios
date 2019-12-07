@@ -10,65 +10,94 @@ import Foundation
 import Starscream
 import Promises
 
-final class ApiDriver: WebSocketDelegate {
+final class ApiDriver: NSObject, WebSocketDelegate {
+    
+    enum ApiDriverError: Error {
+        case notConfigured
+        case connection(_ error: Error?)
+        case userCancelled
+    }
+    
+    @objc enum State: Int, RawRepresentable {
+        case disconnected
+        case connecting
+        case connected
+    }
     
     private var serverUrl: URL?
     private var websocket: WebSocket?
     private lazy var queue = DispatchQueue(label: "com.antrov.sketchvr.startscream")
     private var connectionPromise: Promise<Void>?
+    
+    @objc dynamic
+    private(set) var state: State = .disconnected
      
     func connect(to address: URL) -> Promise<Void> {
         guard connectionPromise == nil || serverUrl != address else { return connectionPromise! }
         
-        connectionPromise?.reject(PromiseError.timedOut)
+        connectionPromise?.reject(ApiDriverError.userCancelled)
         
+        if serverUrl != address {
+            serverUrl = address
+            websocket = setupSocket(with: address)
+        }
+        
+        return connectSocketWithRetrying(with: address)
+    }
+    
+    private func setupSocket(with url: URL) -> WebSocket {
         websocket?.delegate = nil
         websocket?.disconnect()
         
-        let socket = WebSocket(url: address)
+        let socket = WebSocket(url: url)
         socket.delegate = self
         socket.callbackQueue = queue
         
-        serverUrl = address
-        websocket = socket
+        return socket
+    }
+    
+    private func connectSocket() -> Promise<Void> {
+        guard let socket = websocket else { return Promise<Void>(ApiDriverError.notConfigured) }
         
+        state = .connecting
+        connectionPromise = Promise<Void>.pending()
+            
+        connectionPromise?
+            .then { [weak self] in
+                self?.state = .connected
+            }
+            .catch { [weak self] _ in
+                self?.state = .disconnected
+            }
+        
+        socket.connect()
+        
+        return connectionPromise!
+    }
+    
+    private func connectSocketWithRetrying(with url: URL) -> Promise<Void> {
         return retry(on: queue,
                      attempts: .max,
                      delay: 10,
-                     condition: { [weak self] (_, _) -> Bool in self?.serverUrl == address }) {
-                        print("retrying")
-                        return self.connect()
+                     condition: { [weak self] (_, _) -> Bool in self?.serverUrl == url }) {
+                        self.connectSocket()
         }
         .always { [weak self] in
             self?.connectionPromise = nil
-            print("connection promise set to nil")
         }
-    }
-    
-    private func connect() -> Promise<Void> {
-        guard let socket = websocket else { return Promise<Void>(PromiseError.timedOut) }
-        
-        socket.connect()
-        connectionPromise = Promise<Void>.pending().always {
-            print("connection prlmise finished")
-        }
-        
-        return connectionPromise!
     }
     
     // MARK: <WebSocketDelegate>
     
     func websocketDidConnect(socket: WebSocketClient) {
-        print("websocket is connected")
         connectionPromise?.fulfill(())
     }
     
     func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
-        print("websocket is disconnected: \(error?.localizedDescription ?? "")")
-        connectionPromise?.reject(PromiseError.timedOut)
+        connectionPromise?.reject(ApiDriverError.connection(error))
         
         guard connectionPromise == nil, let url = serverUrl else { return }
-        connect(to: url)
+        _ = connectSocketWithRetrying(with: url)
     }
     
     func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
