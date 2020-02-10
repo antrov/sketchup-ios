@@ -10,10 +10,12 @@ import UIKit
 import Promises
 import JGProgressHUD
 import MetalScope
+import QRCodeReader
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, QRCodeReaderViewControllerDelegate {
     
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var panoramaContainer: UIView!
     
     private lazy var control: ControlService = ServiceLocator.inject()
     private lazy var apiDriver: ApiDriver = ServiceLocator.inject()
@@ -35,20 +37,20 @@ class MainViewController: UIViewController {
     
     private func loadPanoramaView() {
         #if arch(arm) || arch(arm64)
-        let panoramaView = PanoramaView(frame: view.bounds, device: device)
+        let panoramaView = PanoramaView(frame: panoramaContainer.bounds, device: device)
         #else
-        let panoramaView = PanoramaView(frame: view.bounds) // simulator
+        let panoramaView = PanoramaView(frame: panoramaContainer.bounds) // simulator
         #endif
         panoramaView.setNeedsResetRotation()
         panoramaView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(panoramaView)
+        panoramaContainer.addSubview(panoramaView)
         
         // fill parent view
         let constraints: [NSLayoutConstraint] = [
-            panoramaView.topAnchor.constraint(equalTo: view.topAnchor),
-            panoramaView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            panoramaView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            panoramaView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            panoramaView.topAnchor.constraint(equalTo: panoramaContainer.topAnchor),
+            panoramaView.bottomAnchor.constraint(equalTo: panoramaContainer.bottomAnchor),
+            panoramaView.leadingAnchor.constraint(equalTo: panoramaContainer.leadingAnchor),
+            panoramaView.trailingAnchor.constraint(equalTo: panoramaContainer.trailingAnchor)
         ]
         NSLayoutConstraint.activate(constraints)
         
@@ -160,12 +162,32 @@ class MainViewController: UIViewController {
     
     @IBAction private func loadActionBtn(_ sender: Any) {
 //        webView.callAction(.load)
+        let reader = QRCodeReaderViewController(builder: QRCodeReaderViewControllerBuilder { builder in
+            builder.reader = QRCodeReader(metadataObjectTypes: [.qr], captureDevicePosition: .back)
+            builder.showSwitchCameraButton = false
+        })
+        
+        reader.delegate = self
+        reader.modalPresentationStyle = .formSheet
+        
+        present(reader, animated: true, completion: nil)
     }
     
     @objc func doubleTapAction(_ sender: Any) {
         panoramaView?.setNeedsResetRotation()
     }
    
+    // MARK: <QRCodeReaderViewControllerDelegate>
+    
+    func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
+        reader.stopScanning()
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func readerDidCancel(_ reader: QRCodeReaderViewController) {
+      reader.stopScanning()
+      dismiss(animated: true, completion: nil)
+    }
     
 }
 

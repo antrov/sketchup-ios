@@ -19,6 +19,7 @@
 		AF855DC32393FE9F00956A34 /* MetalScope in Frameworks */ = {isa = PBXBuildFile; productRef = AF855DC22393FE9F00956A34 /* MetalScope */; };
 		AF855DC62394097100956A34 /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = AF855DC52394097100956A34 /* Starscream */; };
 		AF855DC82394097C00956A34 /* ApiDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855DC72394097C00956A34 /* ApiDriver.swift */; };
+		AFF5D011239C5A3A007CA523 /* QRCodeReader in Frameworks */ = {isa = PBXBuildFile; productRef = AFF5D010239C5A3A007CA523 /* QRCodeReader */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 				AF855DC32393FE9F00956A34 /* MetalScope in Frameworks */,
 				AF83212C238479CB00656965 /* Promises in Frameworks */,
 				AF855DC62394097100956A34 /* Starscream in Frameworks */,
+				AFF5D011239C5A3A007CA523 /* QRCodeReader in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +162,7 @@
 				AF83212E238541AF00656965 /* JGProgressHUD */,
 				AF855DC22393FE9F00956A34 /* MetalScope */,
 				AF855DC52394097100956A34 /* Starscream */,
+				AFF5D010239C5A3A007CA523 /* QRCodeReader */,
 			);
 			productName = sketchvr;
 			productReference = AF05CF8E2382AC8B00FC0203 /* SketchVR.app */;
@@ -194,6 +197,7 @@
 				AF83212D238541AF00656965 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 				AF855DC12393FE9F00956A34 /* XCRemoteSwiftPackageReference "MetalScope" */,
 				AF855DC42394097100956A34 /* XCRemoteSwiftPackageReference "Starscream" */,
+				AFF5D00F239C5A3A007CA523 /* XCRemoteSwiftPackageReference "QRCodeReader.swift" */,
 			);
 			productRefGroup = AF05CF8F2382AC8B00FC0203 /* Products */;
 			projectDirPath = "";
@@ -464,6 +468,14 @@
 				minimumVersion = 3.1.1;
 			};
 		};
+		AFF5D00F239C5A3A007CA523 /* XCRemoteSwiftPackageReference "QRCodeReader.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/yannickl/QRCodeReader.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.1.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -486,6 +498,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AF855DC42394097100956A34 /* XCRemoteSwiftPackageReference "Starscream" */;
 			productName = Starscream;
+		};
+		AFF5D010239C5A3A007CA523 /* QRCodeReader */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AFF5D00F239C5A3A007CA523 /* XCRemoteSwiftPackageReference "QRCodeReader.swift" */;
+			productName = QRCodeReader;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
