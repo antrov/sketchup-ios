@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="J3h-tu-UgG">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="landscape" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,67 +12,109 @@
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="J3h-tu-UgG" customClass="MainViewController" customModule="SketchVR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7qB-lo-sjL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s3r-Aa-BT0">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s3r-Aa-BT0" customClass="SphereView" customModule="SketchVR" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MfH-rG-lzE">
-                                <rect key="frame" x="43" y="323" width="290" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oIP-42-eCT">
-                                <rect key="frame" x="305" y="16" width="54" height="150"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="zOS-KI-ZBP">
-                                    <rect key="frame" x="0.0" y="0.0" width="54" height="150"/>
+                            <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kpz-kl-cCF">
+                                <rect key="frame" x="597" y="16" width="54" height="294"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="7oL-J7-hfM">
+                                    <rect key="frame" x="0.0" y="0.0" width="54" height="294"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="e5A-SA-UIT">
-                                            <rect key="frame" x="12" y="12" width="30" height="126"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="eBX-Rq-pJf">
+                                            <rect key="frame" x="6" y="6" width="42" height="282"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cbg-gK-PXO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="34"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zBF-bd-5UO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="42" height="42"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="42" id="9NO-au-kcp"/>
+                                                        <constraint firstAttribute="height" constant="42" id="dLB-v7-9Ut"/>
+                                                    </constraints>
                                                     <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
                                                     <state key="normal" image="arrow.up" catalog="system"/>
                                                     <connections>
-                                                        <action selector="forwardActionBtn:" destination="J3h-tu-UgG" eventType="touchUpInside" id="CnI-NR-CmP"/>
+                                                        <action selector="forwardActionBtn:" destination="J3h-tu-UgG" eventType="touchUpInside" id="Mf4-L7-jgq"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dR2-GX-kfl">
-                                                    <rect key="frame" x="0.0" y="46" width="30" height="34"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bon-N7-KeD">
+                                                    <rect key="frame" x="0.0" y="48" width="42" height="42"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="42" id="Kw2-tX-64n"/>
+                                                        <constraint firstAttribute="height" constant="42" id="iLT-BY-aTg"/>
+                                                    </constraints>
                                                     <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
                                                     <state key="normal" image="arrow.down" catalog="system"/>
                                                     <connections>
-                                                        <action selector="backwardActionBtn:" destination="J3h-tu-UgG" eventType="touchUpInside" id="WMp-u4-Hvc"/>
+                                                        <action selector="backwardActionBtn:" destination="J3h-tu-UgG" eventType="touchUpInside" id="W2r-Eq-3eN"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcY-XX-JfR">
-                                                    <rect key="frame" x="0.0" y="92" width="30" height="34"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sQc-lT-ttV">
+                                                    <rect key="frame" x="0.0" y="96" width="42" height="42"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="42" id="5Mq-O3-fw5"/>
+                                                        <constraint firstAttribute="height" constant="42" id="U0k-Eu-mSO"/>
+                                                    </constraints>
                                                     <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
-                                                    <state key="normal" image="arrow.clockwise" catalog="system"/>
+                                                    <state key="normal" image="qrcode.viewfinder" catalog="system"/>
                                                     <connections>
-                                                        <action selector="loadActionBtn:" destination="J3h-tu-UgG" eventType="touchUpInside" id="8ZE-Sv-u4Q"/>
+                                                        <action selector="qrActionBtn:" destination="J3h-tu-UgG" eventType="touchUpInside" id="kph-in-uax"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zjJ-jn-C8c">
+                                                    <rect key="frame" x="0.0" y="144" width="42" height="42"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="42" id="A1w-bz-Zrd"/>
+                                                        <constraint firstAttribute="width" constant="42" id="EIr-pH-G9r"/>
+                                                    </constraints>
+                                                    <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
+                                                    <state key="normal" image="livephoto.slash" catalog="system"/>
+                                                    <state key="selected" image="livephoto.play" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="toggleLiveQuaternionAction:" destination="J3h-tu-UgG" eventType="touchUpInside" id="h4n-Vj-522"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZa-ep-l0T">
+                                                    <rect key="frame" x="0.0" y="192" width="42" height="42"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="42" id="ees-v6-G7Z"/>
+                                                        <constraint firstAttribute="width" constant="42" id="fbp-e2-tXV"/>
+                                                    </constraints>
+                                                    <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
+                                                    <state key="normal" image="view.2d" catalog="system"/>
+                                                    <state key="selected" image="view.3d" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="togglePresenterMode:" destination="J3h-tu-UgG" eventType="touchUpInside" id="KRV-7S-6Cl"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQM-hY-WcL">
+                                                    <rect key="frame" x="0.0" y="240" width="42" height="42"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="42" id="4qG-6e-Y8P"/>
+                                                        <constraint firstAttribute="width" constant="42" id="8zR-yS-JuN"/>
+                                                    </constraints>
+                                                    <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
+                                                    <state key="normal" image="clear" catalog="system"/>
+                                                    <state key="selected" image="view.3d" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="doubleTapAction:" destination="J3h-tu-UgG" eventType="touchUpInside" id="FGl-xR-l04"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="e5A-SA-UIT" firstAttribute="top" secondItem="zOS-KI-ZBP" secondAttribute="top" constant="12" id="G0u-Xu-g9j"/>
-                                        <constraint firstItem="e5A-SA-UIT" firstAttribute="leading" secondItem="zOS-KI-ZBP" secondAttribute="leading" constant="12" id="IFN-Zj-BSu"/>
-                                        <constraint firstAttribute="bottom" secondItem="e5A-SA-UIT" secondAttribute="bottom" constant="12" id="Ipj-sK-F7x"/>
-                                        <constraint firstAttribute="trailing" secondItem="e5A-SA-UIT" secondAttribute="trailing" constant="12" id="yNl-qR-zKH"/>
+                                        <constraint firstItem="eBX-Rq-pJf" firstAttribute="top" secondItem="7oL-J7-hfM" secondAttribute="top" constant="6" id="OVN-i6-0tI"/>
+                                        <constraint firstAttribute="trailing" secondItem="eBX-Rq-pJf" secondAttribute="trailing" constant="6" id="P53-iM-SWT"/>
+                                        <constraint firstAttribute="bottom" secondItem="eBX-Rq-pJf" secondAttribute="bottom" constant="6" id="Rff-Qc-NFD"/>
+                                        <constraint firstItem="eBX-Rq-pJf" firstAttribute="leading" secondItem="7oL-J7-hfM" secondAttribute="leading" constant="6" id="h4z-6K-gVd"/>
                                     </constraints>
                                 </view>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <vibrancyEffect>
-                                    <blurEffect style="systemChromeMaterialDark"/>
-                                </vibrancyEffect>
+                                <blurEffect style="systemChromeMaterialDark"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="5"/>
@@ -80,19 +122,21 @@
                                 </userDefinedRuntimeAttributes>
                             </visualEffectView>
                         </subviews>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="cwd-5J-RsE" firstAttribute="trailing" secondItem="s3r-Aa-BT0" secondAttribute="trailing" id="9HB-HA-KcV"/>
-                            <constraint firstItem="cwd-5J-RsE" firstAttribute="trailing" secondItem="oIP-42-eCT" secondAttribute="trailing" constant="16" id="R7J-i4-b4W"/>
+                            <constraint firstItem="cwd-5J-RsE" firstAttribute="trailing" secondItem="kpz-kl-cCF" secondAttribute="trailing" constant="16" id="XlJ-V2-Y0g"/>
+                            <constraint firstItem="kpz-kl-cCF" firstAttribute="top" secondItem="cwd-5J-RsE" secondAttribute="top" constant="16" id="ZVk-RL-GoN"/>
                             <constraint firstItem="cwd-5J-RsE" firstAttribute="bottom" secondItem="s3r-Aa-BT0" secondAttribute="bottom" id="aEZ-Px-1Qx"/>
                             <constraint firstItem="s3r-Aa-BT0" firstAttribute="top" secondItem="cwd-5J-RsE" secondAttribute="top" id="ejG-zm-X7i"/>
-                            <constraint firstItem="oIP-42-eCT" firstAttribute="top" secondItem="cwd-5J-RsE" secondAttribute="top" constant="16" id="vld-tM-VIs"/>
                             <constraint firstItem="s3r-Aa-BT0" firstAttribute="leading" secondItem="cwd-5J-RsE" secondAttribute="leading" id="xDO-4y-0jX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cwd-5J-RsE"/>
                     </view>
                     <connections>
-                        <outlet property="label" destination="MfH-rG-lzE" id="Suy-CF-PRy"/>
-                        <outlet property="panoramaContainer" destination="s3r-Aa-BT0" id="QoR-yY-Tnn"/>
+                        <outlet property="buttonsView" destination="kpz-kl-cCF" id="RFE-Lt-4T3"/>
+                        <outlet property="sphereModeBtn" destination="ZZa-ep-l0T" id="fpn-4p-had"/>
+                        <outlet property="sphereView" destination="s3r-Aa-BT0" id="LuH-21-ZM9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EUr-hv-q5I" sceneMemberID="firstResponder"/>
@@ -101,8 +145,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.clockwise" catalog="system" width="56" height="64"/>
         <image name="arrow.down" catalog="system" width="60" height="64"/>
         <image name="arrow.up" catalog="system" width="60" height="64"/>
+        <image name="clear" catalog="system" width="64" height="56"/>
+        <image name="livephoto.play" catalog="system" width="64" height="60"/>
+        <image name="livephoto.slash" catalog="system" width="64" height="60"/>
+        <image name="qrcode.viewfinder" catalog="system" width="64" height="56"/>
+        <image name="view.2d" catalog="system" width="64" height="38"/>
+        <image name="view.3d" catalog="system" width="64" height="36"/>
     </resources>
 </document>

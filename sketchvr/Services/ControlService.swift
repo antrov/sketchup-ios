@@ -9,8 +9,16 @@
 import Foundation
 import MediaPlayer
 
+protocol ControlServiceDelegate: class {
+    func controlServiceDidReceive(event: ControlService.ControlEvent)
+}
 
 final class ControlService {
+    
+    enum ControlEvent {
+        case up
+        case down
+    }
     
 //    static let
     // https://www.raywenderlich.com/835-audiokit-tutorial-getting-started
@@ -20,6 +28,8 @@ final class ControlService {
     private var playerItem: AVPlayerItem?
     
     private var observers: [Any]?
+    
+    weak var delegate: ControlServiceDelegate?
     
     func start() {
         let session = AVAudioSession.sharedInstance()
@@ -46,13 +56,18 @@ final class ControlService {
     }
     
     private func volumeDidChange(_ session: AVAudioSession, _ change: NSKeyValueObservedChange<Float>) {
-        guard let newValue = change.newValue, newValue != 0.5 else { return }
+        guard let newValue = change.newValue, newValue != 0.5, let oldValue = change.oldValue else { return }
         
-        //      let volume = notification.userInfo!["AVSystemController_AudioVolumeNotificationParameter"] as! Float
-        //
-        //        print(newValue - oldValue)
+        var event: ControlEvent!
+        
+        if newValue > oldValue {
+            event = .up
+        } else {
+            event = .down
+        }
+        
+        delegate?.controlServiceDidReceive(event: event)
         MPVolumeView.setVolume(0.5)
-//        NotificationCenter.default.post(name: .onStepForws, object: nil, userInfo: nil)
     }
     
     func setupRemoteTransportControls() {

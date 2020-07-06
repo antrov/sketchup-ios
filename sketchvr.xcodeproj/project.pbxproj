@@ -14,11 +14,15 @@
 		AF05CF9E2382AC8C00FC0203 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF05CF9C2382AC8C00FC0203 /* LaunchScreen.storyboard */; };
 		AF05CFD22382B08E00FC0203 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF05CFD12382B08E00FC0203 /* ServiceLocator.swift */; };
 		AF05CFD92382B26100FC0203 /* ControlService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF05CFD82382B26100FC0203 /* ControlService.swift */; };
+		AF49BD04241ACABF003780B0 /* ApiAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF49BD03241ACABF003780B0 /* ApiAction.swift */; };
 		AF83212C238479CB00656965 /* Promises in Frameworks */ = {isa = PBXBuildFile; productRef = AF83212B238479CB00656965 /* Promises */; };
 		AF83212F238541AF00656965 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = AF83212E238541AF00656965 /* JGProgressHUD */; };
 		AF855DC32393FE9F00956A34 /* MetalScope in Frameworks */ = {isa = PBXBuildFile; productRef = AF855DC22393FE9F00956A34 /* MetalScope */; };
 		AF855DC62394097100956A34 /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = AF855DC52394097100956A34 /* Starscream */; };
 		AF855DC82394097C00956A34 /* ApiDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855DC72394097C00956A34 /* ApiDriver.swift */; };
+		AF97B5F6241D24EB00ABD436 /* SphereView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF97B5F5241D24EB00ABD436 /* SphereView.swift */; };
+		AFEC9F73241AB390000B81B6 /* ObjectMapper in Frameworks */ = {isa = PBXBuildFile; productRef = AFEC9F72241AB390000B81B6 /* ObjectMapper */; };
+		AFEC9F77241AB3C7000B81B6 /* ApiEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEC9F76241AB3C7000B81B6 /* ApiEvent.swift */; };
 		AFF5D011239C5A3A007CA523 /* QRCodeReader in Frameworks */ = {isa = PBXBuildFile; productRef = AFF5D010239C5A3A007CA523 /* QRCodeReader */; };
 /* End PBXBuildFile section */
 
@@ -33,7 +37,10 @@
 		AF05CFD12382B08E00FC0203 /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		AF05CFD82382B26100FC0203 /* ControlService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlService.swift; sourceTree = "<group>"; };
 		AF13BEE92388306400449B2E /* SketchVR.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SketchVR.entitlements; sourceTree = "<group>"; };
+		AF49BD03241ACABF003780B0 /* ApiAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiAction.swift; sourceTree = "<group>"; };
 		AF855DC72394097C00956A34 /* ApiDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiDriver.swift; sourceTree = "<group>"; };
+		AF97B5F5241D24EB00ABD436 /* SphereView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphereView.swift; sourceTree = "<group>"; };
+		AFEC9F76241AB3C7000B81B6 /* ApiEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEvent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFEC9F73241AB390000B81B6 /* ObjectMapper in Frameworks */,
 				AF83212F238541AF00656965 /* JGProgressHUD in Frameworks */,
 				AF855DC32393FE9F00956A34 /* MetalScope in Frameworks */,
 				AF83212C238479CB00656965 /* Promises in Frameworks */,
@@ -91,8 +99,8 @@
 		AF05CFD02382B07C00FC0203 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				AFEC9F74241AB397000B81B6 /* ApiDriver */,
 				AF05CFD12382B08E00FC0203 /* ServiceLocator.swift */,
-				AF855DC72394097C00956A34 /* ApiDriver.swift */,
 				AF05CFD82382B26100FC0203 /* ControlService.swift */,
 			);
 			path = Services;
@@ -129,16 +137,35 @@
 			children = (
 				AF05CF972382AC8B00FC0203 /* Main.storyboard */,
 				AF05CF952382AC8B00FC0203 /* MainViewController.swift */,
-				AFEC25BD2383087000A9FDD1 /* Views */,
+				AF97B5F4241D24E000ABD436 /* Views */,
 			);
 			path = Main;
 			sourceTree = "<group>";
 		};
-		AFEC25BD2383087000A9FDD1 /* Views */ = {
+		AF97B5F4241D24E000ABD436 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AF97B5F5241D24EB00ABD436 /* SphereView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		AFEC9F74241AB397000B81B6 /* ApiDriver */ = {
+			isa = PBXGroup;
+			children = (
+				AFEC9F75241AB3A4000B81B6 /* Models */,
+				AF855DC72394097C00956A34 /* ApiDriver.swift */,
+			);
+			path = ApiDriver;
+			sourceTree = "<group>";
+		};
+		AFEC9F75241AB3A4000B81B6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AFEC9F76241AB3C7000B81B6 /* ApiEvent.swift */,
+				AF49BD03241ACABF003780B0 /* ApiAction.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +190,7 @@
 				AF855DC22393FE9F00956A34 /* MetalScope */,
 				AF855DC52394097100956A34 /* Starscream */,
 				AFF5D010239C5A3A007CA523 /* QRCodeReader */,
+				AFEC9F72241AB390000B81B6 /* ObjectMapper */,
 			);
 			productName = sketchvr;
 			productReference = AF05CF8E2382AC8B00FC0203 /* SketchVR.app */;
@@ -198,6 +226,7 @@
 				AF855DC12393FE9F00956A34 /* XCRemoteSwiftPackageReference "MetalScope" */,
 				AF855DC42394097100956A34 /* XCRemoteSwiftPackageReference "Starscream" */,
 				AFF5D00F239C5A3A007CA523 /* XCRemoteSwiftPackageReference "QRCodeReader.swift" */,
+				AFEC9F71241AB390000B81B6 /* XCRemoteSwiftPackageReference "ObjectMapper" */,
 			);
 			productRefGroup = AF05CF8F2382AC8B00FC0203 /* Products */;
 			projectDirPath = "";
@@ -228,7 +257,10 @@
 			files = (
 				AF05CFD22382B08E00FC0203 /* ServiceLocator.swift in Sources */,
 				AF855DC82394097C00956A34 /* ApiDriver.swift in Sources */,
+				AF49BD04241ACABF003780B0 /* ApiAction.swift in Sources */,
 				AF05CFD92382B26100FC0203 /* ControlService.swift in Sources */,
+				AFEC9F77241AB3C7000B81B6 /* ApiEvent.swift in Sources */,
+				AF97B5F6241D24EB00ABD436 /* SphereView.swift in Sources */,
 				AF05CF962382AC8B00FC0203 /* MainViewController.swift in Sources */,
 				AF05CF922382AC8B00FC0203 /* AppDelegate.swift in Sources */,
 			);
@@ -376,7 +408,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = sketchvr/SketchVR.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = "2-rc1";
 				DEVELOPMENT_TEAM = Q436T99AEU;
 				INFOPLIST_FILE = sketchvr/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -397,7 +429,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = sketchvr/SketchVR.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = "2-rc1";
 				DEVELOPMENT_TEAM = Q436T99AEU;
 				INFOPLIST_FILE = sketchvr/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -468,6 +500,14 @@
 				minimumVersion = 3.1.1;
 			};
 		};
+		AFEC9F71241AB390000B81B6 /* XCRemoteSwiftPackageReference "ObjectMapper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tristanhimmelman/ObjectMapper.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.5.1;
+			};
+		};
 		AFF5D00F239C5A3A007CA523 /* XCRemoteSwiftPackageReference "QRCodeReader.swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/yannickl/QRCodeReader.swift.git";
@@ -498,6 +538,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AF855DC42394097100956A34 /* XCRemoteSwiftPackageReference "Starscream" */;
 			productName = Starscream;
+		};
+		AFEC9F72241AB390000B81B6 /* ObjectMapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AFEC9F71241AB390000B81B6 /* XCRemoteSwiftPackageReference "ObjectMapper" */;
+			productName = ObjectMapper;
 		};
 		AFF5D010239C5A3A007CA523 /* QRCodeReader */ = {
 			isa = XCSwiftPackageProductDependency;

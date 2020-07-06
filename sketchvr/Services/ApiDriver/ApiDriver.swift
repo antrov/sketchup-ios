@@ -9,6 +9,11 @@
 import Foundation
 import Starscream
 import Promises
+import UIKit
+
+protocol ApiDriverDelegate: class {
+    func apiDriverDidReceiveScreenshot(_ data: Data)
+}
 
 final class ApiDriver: NSObject, WebSocketDelegate {
     
@@ -16,9 +21,10 @@ final class ApiDriver: NSObject, WebSocketDelegate {
         case notConfigured
         case connection(_ error: Error?)
         case userCancelled
+        case invalidData
     }
     
-    @objc enum State: Int, RawRepresentable {
+    @objc enum State: Int {
         case disconnected
         case connecting
         case connected
@@ -31,6 +37,8 @@ final class ApiDriver: NSObject, WebSocketDelegate {
     
     @objc dynamic
     private(set) var state: State = .disconnected
+    
+    weak var delegate: ApiDriverDelegate?
      
     func connect(to address: URL) -> Promise<Void> {
         guard connectionPromise == nil || serverUrl != address else { return connectionPromise! }
@@ -44,6 +52,18 @@ final class ApiDriver: NSObject, WebSocketDelegate {
         
         return connectSocketWithRetrying(with: address)
     }
+    
+    func request(action: ApiAction) {
+        guard let json = action.toJSONString() else { return }
+        websocket?.write(string: json)
+    }
+    
+    func write(d: Data) {
+        
+        self.websocket?.write(string: String(data: d, encoding: .utf8)!)
+    }
+    
+    // MARK: Private
     
     private func setupSocket(with url: URL) -> WebSocket {
         websocket?.delegate = nil
@@ -77,8 +97,8 @@ final class ApiDriver: NSObject, WebSocketDelegate {
     
     private func connectSocketWithRetrying(with url: URL) -> Promise<Void> {
         return retry(on: queue,
-                     attempts: .max,
-                     delay: 10,
+                     attempts: 2,
+                     delay: 1,
                      condition: { [weak self] (_, _) -> Bool in self?.serverUrl == url }) {
                         self.connectSocket()
         }
@@ -94,6 +114,7 @@ final class ApiDriver: NSObject, WebSocketDelegate {
     }
     
     func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
+        print(error)
         connectionPromise?.reject(ApiDriverError.connection(error))
         
         guard connectionPromise == nil, let url = serverUrl else { return }
@@ -101,7 +122,12 @@ final class ApiDriver: NSObject, WebSocketDelegate {
     }
     
     func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
-        print("got some text: \(text)")
+        guard let event = ApiEvent(JSONString: text) else { return }
+        guard let data = event.data else { return }
+        
+        DispatchQueue.main.async {
+            self.delegate?.apiDriverDidReceiveScreenshot(data)
+        }
     }
     
     func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
